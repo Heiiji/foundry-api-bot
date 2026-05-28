@@ -1,0 +1,31 @@
+[Unit]
+Description=Foundry REST bridge headless client
+After=network-online.target
+Wants=network-online.target
+
+# If your Foundry service has a known unit name, uncomment and edit these lines.
+# After=network-online.target foundryvtt.service
+# Requires=foundryvtt.service
+
+[Service]
+Type=simple
+User=foundry
+Group=foundry
+WorkingDirectory=/opt/foundry-api-bot
+EnvironmentFile=/etc/foundry-api-bot/env
+Environment=PLAYWRIGHT_BROWSERS_PATH=/var/lib/foundry-api-bot/ms-playwright
+ExecStart=/usr/bin/node /opt/foundry-api-bot/src/foundry-bot.js
+Restart=always
+RestartSec=10
+KillSignal=SIGTERM
+TimeoutStopSec=30
+UMask=0077
+StateDirectory=foundry-api-bot
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/foundry-api-bot
+
+[Install]
+WantedBy=multi-user.target

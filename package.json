@@ -1,0 +1,33 @@
+{
+  "name": "foundry-api-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Headless Foundry VTT GM client that keeps client-side REST bridge modules alive.",
+  "main": "src/foundry-bot.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "author": "Julien Juret",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Heiiji/foundry-api-bot.git"
+  },
+  "homepage": "https://github.com/Heiiji/foundry-api-bot#readme",
+  "bugs": {
+    "url": "https://github.com/Heiiji/foundry-api-bot/issues"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/foundry-bot.js",
+    "setup": "node src/foundry-bot.js --setup",
+    "doctor": "node src/foundry-bot.js --doctor",
+    "health": "node src/foundry-bot.js --health",
+    "check": "node --check src/foundry-bot.js",
+    "install-browser": "npx playwright install chromium",
+    "install-browser-with-deps": "npx playwright install --with-deps chromium"
+  },
+  "dependencies": {
+    "playwright": "1.60.0"
+  }
+}
